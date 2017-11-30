@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.android.newprojectdemo.R;
 import com.android.newprojectdemo.a_test.model.Test_UserInfoDetailBean;
 import com.android.newprojectdemo.a_test.service.Test_ServiceClient;
-import com.android.newprojectdemo.app.BaseAppCompatActivity;
+import com.android.newprojectdemo.app.BaseActivity;
 import com.android.newprojectdemo.db.LiteOrmHelper;
 import com.android.newprojectdemo.model.FirImBean;
 import com.android.newprojectdemo.model.ServiceResult;
@@ -38,7 +38,7 @@ import io.reactivex.schedulers.Schedulers;
  * 测试用：登录页面
  */
 
-public class Test_LoginActivity extends BaseAppCompatActivity {
+public class Test_LoginActivity extends BaseActivity {
 
     private EditText etPhoneNumber;
     private ImageView ivClearPhone;

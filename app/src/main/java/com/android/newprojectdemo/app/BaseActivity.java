@@ -2,8 +2,10 @@ package com.android.newprojectdemo.app;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import com.android.newprojectdemo.ui.dialog.DefaultProgressDialog;
@@ -13,7 +15,7 @@ import com.orhanobut.logger.Logger;
  * 基类
  */
 
-public class BaseAppCompatActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity {
 
     private InputMethodManager manager;
     private DefaultProgressDialog mProgress;
@@ -21,8 +23,6 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Logger.i(this.getPackageName());
         Logger.i(this.getLocalClassName());
 
         manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -37,8 +37,12 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     }
 
     protected void hideKeyboard() {
-        if (getCurrentFocus() != null && getCurrentFocus().getWindowToken() != null) {
-            manager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        final View currentFocus = getCurrentFocus();
+        if (currentFocus != null) {
+            final IBinder windowToken = currentFocus.getWindowToken();
+            if (windowToken != null && manager != null) {
+                manager.hideSoftInputFromWindow(windowToken, InputMethodManager.HIDE_NOT_ALWAYS);
+            }
         }
     }
 

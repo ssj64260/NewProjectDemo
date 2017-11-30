@@ -6,9 +6,9 @@ import android.view.View;
 
 import com.android.newprojectdemo.R;
 import com.android.newprojectdemo.a_test.ui.Test_LoginActivity;
-import com.android.newprojectdemo.app.BaseAppCompatActivity;
+import com.android.newprojectdemo.app.BaseActivity;
 
-public class MainActivity extends BaseAppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private View.OnClickListener mClick = new View.OnClickListener() {
         @Override

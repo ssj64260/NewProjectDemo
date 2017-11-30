@@ -10,7 +10,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
 import com.android.newprojectdemo.R;
-import com.android.newprojectdemo.app.BaseAppCompatActivity;
+import com.android.newprojectdemo.app.BaseActivity;
 import com.android.newprojectdemo.ui.dialog.DefaultAlertDialog;
 import com.android.newprojectdemo.utils.AppManager;
 
@@ -27,7 +27,7 @@ import io.reactivex.functions.Action;
  * 启动页面
  */
 
-public class LaunchActivity extends BaseAppCompatActivity {
+public class LaunchActivity extends BaseActivity {
 
     private static final int REQUEST_TO_SETTING = 1001;//跳转到系统设置权限页面
 
