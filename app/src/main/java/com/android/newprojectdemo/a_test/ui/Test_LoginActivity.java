@@ -19,7 +19,7 @@ import com.android.newprojectdemo.model.ServiceResult;
 import com.android.newprojectdemo.service.MyObserver;
 import com.android.newprojectdemo.utils.ToastMaster;
 import com.android.newprojectdemo.utils.UpdateAppUtils;
-import com.android.newprojectdemo.utils.VersionUtil;
+import com.android.newprojectdemo.utils.VersionUtils;
 import com.android.newprojectdemo.widget.imageloader.GlideCircleTransform;
 import com.android.newprojectdemo.widget.imageloader.ImageLoaderFactory;
 import com.google.gson.Gson;
@@ -248,7 +248,7 @@ public class Test_LoginActivity extends BaseActivity {
                                 tvJsonText.setText(json);
 
                                 final int lastVersionCode = Integer.parseInt(firImBean.getVersion());
-                                final int currentVersionCode = VersionUtil.getVersionCode(Test_LoginActivity.this);
+                                final int currentVersionCode = VersionUtils.getVersionCode(Test_LoginActivity.this);
                                 if (lastVersionCode > currentVersionCode) {
                                     final UpdateAppUtils updateApp = new UpdateAppUtils(Test_LoginActivity.this, firImBean);
                                     updateApp.showUpdateDialog();

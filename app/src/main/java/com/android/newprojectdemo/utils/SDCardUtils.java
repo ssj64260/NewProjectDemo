@@ -10,7 +10,7 @@ import java.io.File;
 /**
  * sd卡路径
  */
-public class SDCardUtil {
+public class SDCardUtils {
 
     //  /storage/emulated/0
     public static String getSDCardDir() {

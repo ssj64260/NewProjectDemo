@@ -9,7 +9,7 @@ import android.content.pm.PackageManager;
  *
  * 安装机制，迭代安装只能安装version name比较大的，version code不作限制
  */
-public class VersionUtil {
+public class VersionUtils {
 
     /**
      * 比较两个version name大小

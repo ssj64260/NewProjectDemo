@@ -15,7 +15,7 @@ import java.io.InputStream;
 /**
  * 文件处理工具类
  */
-public class FileUtil {
+public class FileUtils {
 
     //获取文件大小
     public static long getFileSize(File f) throws Exception {

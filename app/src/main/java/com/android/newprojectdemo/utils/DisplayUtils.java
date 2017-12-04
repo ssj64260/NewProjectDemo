@@ -12,7 +12,7 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
 
-public class DisplayUtil {
+public class DisplayUtils {
 
     public static DisplayMetrics getMetrics() {
         return Resources.getSystem().getDisplayMetrics();

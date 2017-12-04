@@ -54,7 +54,7 @@ public class UpdateAppUtils {
         mUpdateInfo = updateInfo;
 
         mVersionName = mUpdateInfo.getVersionShort();
-        final File apkDirectory = new File(SDCardUtil.getExternalFilesDir(mContext));
+        final File apkDirectory = new File(SDCardUtils.getExternalFilesDir(mContext));
         final String apkName = String.format("BaoyingMall_%s.apk", mVersionName.replace(".", "_"));
         apkFile = new File(apkDirectory, apkName);
 
@@ -183,8 +183,8 @@ public class UpdateAppUtils {
                             @Override
                             public void run() {
                                 if (alertDialog != null && !call.isCanceled()) {
-                                    String currentFileSize = FileUtil.formatFileSize(mContext, finalCurrent);
-                                    String totalFileSize = FileUtil.formatFileSize(mContext, total);
+                                    String currentFileSize = FileUtils.formatFileSize(mContext, finalCurrent);
+                                    String totalFileSize = FileUtils.formatFileSize(mContext, total);
                                     alertDialog.setTitleText("下载中：" + currentFileSize + "/" + totalFileSize);
                                 }
                             }

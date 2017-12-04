@@ -9,7 +9,7 @@ import com.android.newprojectdemo.app.APP;
  * sharedPreferences工具类
  */
 
-public class PreferencesUtil {
+public class PreferencesUtils {
 
     //SharePreferences相关
     public static final String APP_SETTING = "app_setting";//app设置的文件名称
