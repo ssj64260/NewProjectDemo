@@ -3,6 +3,7 @@ package com.android.newprojectdemo.utils;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.text.TextUtils;
 
 /**
  * 版本号工具类
@@ -20,7 +21,7 @@ public class VersionUtils {
      */
     public static boolean isNewVersionName(String localVersion, String serverVersion) {
 
-        if (!StringCheck.isEmpty(localVersion) && !StringCheck.isEmpty(serverVersion)) {
+        if (!TextUtils.isEmpty(localVersion) && !TextUtils.isEmpty(serverVersion)) {
 
             if (localVersion.equals(serverVersion)) {
                 return false;

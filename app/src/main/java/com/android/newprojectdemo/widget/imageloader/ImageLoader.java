@@ -4,9 +4,8 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.android.newprojectdemo.R;
-import com.bumptech.glide.Glide;
+import com.android.newprojectdemo.utils.GlideApp;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
-import com.bumptech.glide.request.RequestOptions;
 
 /**
  * 加载图片实现
@@ -16,6 +15,31 @@ public class ImageLoader implements ImageLoaderWrapper {
 
     private final int mPlaceHolder = R.mipmap.ic_launcher;
     private final int mErrorImage = R.mipmap.ic_launcher;
+
+    @Override
+    public void loadImage(Context context, ImageView imageView, String url) {
+        loadImage(context, imageView, url, mPlaceHolder, mErrorImage);
+    }
+
+    @Override
+    public void loadImage(Context context, ImageView imageView, String url, int placeholder, int errorImage) {
+        loadImage(context, imageView, url, placeholder, errorImage, null);
+    }
+
+    @Override
+    public void loadImage(Context context, ImageView imageView, String url, BitmapTransformation transformation) {
+        loadImage(context, imageView, url, mPlaceHolder, mErrorImage, transformation);
+    }
+
+    @Override
+    public void loadImage(Context context, ImageView imageView, String url, int placeholder, int errorImage, BitmapTransformation transformation) {
+        GlideApp.with(context)
+                .load(url)
+                .placeholder(placeholder)
+                .error(errorImage)
+                .dontAnimate()
+                .into(imageView);
+    }
 
     @Override
     public void loadImageFitCenter(Context context, ImageView imageView, String url) {
@@ -34,19 +58,12 @@ public class ImageLoader implements ImageLoaderWrapper {
 
     @Override
     public void loadImageFitCenter(Context context, ImageView imageView, String url, int placeholder, int errorImage, BitmapTransformation transformation) {
-        RequestOptions options = new RequestOptions()
+        GlideApp.with(context)
+                .load(url)
                 .placeholder(placeholder)
                 .error(errorImage)
                 .fitCenter()
-                .dontAnimate();
-
-        if (transformation != null) {
-            options.transform(transformation);
-        }
-
-        Glide.with(context)
-                .load(url)
-                .apply(options)
+                .dontAnimate()
                 .into(imageView);
     }
 
@@ -67,19 +84,12 @@ public class ImageLoader implements ImageLoaderWrapper {
 
     @Override
     public void loadImageCenterCrop(Context context, ImageView imageView, String url, int placeholder, int errorImage, BitmapTransformation transformation) {
-        RequestOptions options = new RequestOptions()
+        GlideApp.with(context)
+                .load(url)
                 .placeholder(placeholder)
                 .error(errorImage)
                 .centerCrop()
-                .dontAnimate();
-
-        if (transformation != null) {
-            options.transform(transformation);
-        }
-
-        Glide.with(context)
-                .load(url)
-                .apply(options)
+                .dontAnimate()
                 .into(imageView);
     }
 }
