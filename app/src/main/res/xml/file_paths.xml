@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<paths xmlns:android="http://schemas.android.com/apk/res/android">
-    <files-path
-        name="files_path"
-        path="." />
-    <cache-path
-        name="cache_path"
-        path="." />
-    <external-path
-        name="external_path"
-        path="." />
-    <external-files-path
-        name="external_files_path"
-        path="." />
-    <external-cache-path
-        name="external_cache_path"
-        path="." />
-</paths>
+<resources>
+    <paths>
+        <files-path
+            name="temp_images"
+            path="temp" />
+        <files-path
+            name="attendance_images"
+            path="attendance" />
+        <files-path
+            name="sales_images"
+            path="sales" />
+        <files-path
+            name="service_images"
+            path="service" />
+
+        <external-path
+            name="camera_temp_photos"
+            path="Android/data/com.android.newprojectdemo/files/temp" />
+        <external-path
+            name="camera_attendance_photos"
+            path="Android/data/com.android.newprojectdemo/files/attendance" />
+        <external-path
+            name="camera_sales_photos"
+            path="Android/data/com.android.newprojectdemo/files/sales" />
+        <external-path
+            name="camera_service_photos"
+            path="Android/data/com.android.newprojectdemo/files/service" />
+    </paths>
+</resources>
