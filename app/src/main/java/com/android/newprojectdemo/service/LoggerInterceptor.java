@@ -49,7 +49,7 @@ public class LoggerInterceptor implements Interceptor {
         try {
             final String url = request.url().toString();
 
-            logcat.append("---------------------request log ---------------------");
+            logcat.append("--------------------- request log ---------------------");
             logcat.append("\nurl : ").append(url);
             RequestBody requestBody = request.body();
             if (requestBody != null) {
@@ -72,7 +72,7 @@ public class LoggerInterceptor implements Interceptor {
         try {
             Response.Builder builder = response.newBuilder();
             Response clone = builder.build();
-            logcat.append("\n---------------------response log ---------------------");
+            logcat.append("\n--------------------- response log ---------------------");
 
             ResponseBody body = clone.body();
             if (body != null) {
@@ -109,7 +109,7 @@ public class LoggerInterceptor implements Interceptor {
             final String url = request.url().toString();
             final Headers headers = request.headers();
 
-            logcat.append("---------------------request log start---------------------");
+            logcat.append("--------------------- request log start ---------------------");
             logcat.append("\nmethod : ").append(request.method());
             logcat.append("\nurl : ").append(url);
             if (headers != null && headers.size() > 0) {
@@ -130,7 +130,7 @@ public class LoggerInterceptor implements Interceptor {
         } catch (Exception e) {
             logcat.append("\n").append(e.getMessage());
         } finally {
-            logcat.append("\n---------------------request log end---------------------");
+            logcat.append("\n--------------------- request log end ---------------------");
         }
 
         Response response = chain.proceed(request);
@@ -139,7 +139,7 @@ public class LoggerInterceptor implements Interceptor {
         try {
             Response.Builder builder = response.newBuilder();
             Response clone = builder.build();
-            logcat.append("\n---------------------response log start---------------------");
+            logcat.append("\n--------------------- response log start ---------------------");
             logcat.append("\nurl : ").append(clone.request().url());
             logcat.append("\ncode : ").append(clone.code());
             logcat.append("\nprotocol : ").append(clone.protocol());
@@ -172,7 +172,7 @@ public class LoggerInterceptor implements Interceptor {
         } catch (Exception e) {
             logcat.append("\n").append(e.getMessage());
         } finally {
-            logcat.append("\n---------------------response log end---------------------");
+            logcat.append("\n--------------------- response log end ---------------------");
 
             Logger.d(logcat.toString());
             if (showJsonResponse) {
