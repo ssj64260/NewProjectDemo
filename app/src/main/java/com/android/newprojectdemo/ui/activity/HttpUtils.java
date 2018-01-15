@@ -7,5 +7,6 @@ package com.android.newprojectdemo.ui.activity;
 public class HttpUtils {
 
     private String version102;
+    private String version103;
 
 }
