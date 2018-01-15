@@ -8,5 +8,6 @@ public class HttpUtils {
 
     private String version102;
     private String version103;
+    private String version104;
 
 }
