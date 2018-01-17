@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -18,17 +19,23 @@ import com.orhanobut.logger.Logger;
  * 基类
  */
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     private InputMethodManager manager;
     private DefaultProgressDialog mProgress;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         Logger.i(this.getLocalClassName());
 
-        manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        super.onCreate(savedInstanceState);
+
+        if (getContentView() != 0) {
+            setContentView(getContentView());
+        }
+
+        initData();
+        initView(savedInstanceState);
 
     }
 
@@ -37,6 +44,14 @@ public class BaseActivity extends AppCompatActivity {
         super.onDestroy();
         hideKeyboard();
         hideProgress();
+    }
+
+    protected void initData() {
+        manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+    }
+
+    protected void initView(Bundle savedInstanceState) {
+
     }
 
     private void setStatusBar() {
@@ -72,4 +87,7 @@ public class BaseActivity extends AppCompatActivity {
             mProgress.dismissDialog();
         }
     }
+
+    @LayoutRes
+    abstract protected int getContentView();
 }

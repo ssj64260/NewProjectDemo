@@ -11,36 +11,18 @@ import com.orhanobut.logger.Logger;
 
 public class APP extends Application {
 
-    private static APP INStANCE;
-
-    public APP() {
-        INStANCE = this;
-    }
-
-    public static APP getInstance() {
-        if (INStANCE == null) {
-            synchronized (APP.class) {
-                if (INStANCE == null) {
-                    INStANCE = new APP();
-                }
-            }
-        }
-        return INStANCE;
-    }
+    private static APP mApp;
 
     @Override
     public void onCreate() {
         super.onCreate();
-//        if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-//            return;
-//        }
-//        LeakCanary.install(this);//内存泄漏监听
-
-//        CrashReport.initCrashReport(getApplicationContext(), "ccf9eafa11", false);//Bugly
+        mApp = this;
 
         Logger.init(getString(R.string.app_name));
-
     }
+
+    public static APP get(){
+        return mApp;
+    }
+
 }

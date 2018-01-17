@@ -21,7 +21,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
+                android:resource="@xml/file_paths" />
         </provider>
 
         <activity
@@ -40,11 +40,12 @@
             android:screenOrientation="portrait" />
 
 
-
-
         <!-- ============= ↓测试用页面↓ ============= -->
         <activity
-            android:name="com.android.newprojectdemo.a_test.ui.Test_LoginActivity"
+            android:name="com.android.newprojectdemo.a_test.ui.activity.Test_LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".a_test.ui.activity.Test_MainActivity"
             android:screenOrientation="portrait" />
         <!-- ============= ↑测试用页面↑ ============= -->
 

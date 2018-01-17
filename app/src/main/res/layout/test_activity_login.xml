@@ -36,8 +36,8 @@
                 android:inputType="phone"
                 android:maxLength="15"
                 android:maxLines="1"
-                android:textColor="@color/color_181818"
-                android:textColorHint="@color/color_999999"
+                android:textColor="@color/black_light"
+                android:textColorHint="@color/material_grey_500"
                 android:textSize="@dimen/textsize_14" />
 
             <ImageView
@@ -76,8 +76,8 @@
                 android:inputType="textPassword"
                 android:maxLength="15"
                 android:maxLines="1"
-                android:textColor="@color/color_181818"
-                android:textColorHint="@color/color_999999"
+                android:textColor="@color/black_light"
+                android:textColorHint="@color/material_grey_500"
                 android:textSize="@dimen/textsize_14" />
 
             <ImageView
@@ -100,34 +100,8 @@
             android:background="@drawable/selector_bg_button_green"
             android:gravity="center"
             android:text="登录"
-            android:textColor="@drawable/selector_text_button_green"
+            android:textColor="@color/white"
             android:textSize="@dimen/textsize_16" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp">
-
-            <android.support.v4.widget.NestedScrollView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <TextView
-                    android:id="@+id/tv_json_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/textsize_14" />
-
-            </android.support.v4.widget.NestedScrollView>
-
-            <ImageView
-                android:id="@+id/iv_avatar"
-                android:layout_width="90dp"
-                android:layout_height="90dp" />
-
-        </LinearLayout>
 
     </LinearLayout>
 

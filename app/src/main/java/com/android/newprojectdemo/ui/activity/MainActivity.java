@@ -5,10 +5,28 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.android.newprojectdemo.R;
-import com.android.newprojectdemo.a_test.ui.Test_LoginActivity;
+import com.android.newprojectdemo.a_test.ui.activity.Test_LoginActivity;
 import com.android.newprojectdemo.app.BaseActivity;
 
 public class MainActivity extends BaseActivity {
+
+    @Override
+    protected int getContentView() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initData() {
+        super.initData();
+    }
+
+    @Override
+    protected void initView(Bundle savedInstanceState) {
+        super.initView(savedInstanceState);
+
+        startActivity(new Intent(this, Test_LoginActivity.class));
+        finish();
+    }
 
     private View.OnClickListener mClick = new View.OnClickListener() {
         @Override
@@ -18,26 +36,4 @@ public class MainActivity extends BaseActivity {
             }
         }
     };
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        initData();
-        initView();
-
-        startActivity(new Intent(this, Test_LoginActivity.class));
-        finish();
-
-    }
-
-    private void initData() {
-
-    }
-
-    private void initView() {
-
-    }
-
 }

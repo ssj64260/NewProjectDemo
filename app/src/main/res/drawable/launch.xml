@@ -2,8 +2,9 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item>
-        <bitmap android:src="@drawable/bg_launch"
-            android:gravity="fill"/>
+        <bitmap
+            android:gravity="fill"
+            android:src="@mipmap/ic_launcher" />
     </item>
 
 </layer-list>

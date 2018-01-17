@@ -38,14 +38,23 @@ public class LaunchActivity extends BaseActivity {
     private DefaultAlertDialog permissionDialog;//获取权限对话框
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        checkPermission();
-
+    protected int getContentView() {
+        return 0;
     }
 
-    private void initData() {
+    @Override
+    protected void initData() {
+        super.initData();
+    }
+
+    @Override
+    protected void initView(Bundle savedInstanceState) {
+        super.initView(savedInstanceState);
+
+        checkPermission();
+    }
+
+    private void toMain(){
         Observable
                 .timer(1000, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -103,7 +112,7 @@ public class LaunchActivity extends BaseActivity {
         if (permissionPosition < permissions.length) {
             ActivityCompat.requestPermissions(this, new String[]{permissions[permissionPosition]}, permissionPosition);
         } else {
-            initData();
+            toMain();
         }
     }
 

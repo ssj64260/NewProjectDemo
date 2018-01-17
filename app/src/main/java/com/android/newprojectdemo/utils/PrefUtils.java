@@ -17,11 +17,11 @@ import java.util.Set;
 public class PrefUtils {
 
     private static SharedPreferences getDefaultSp() {
-        return PreferenceManager.getDefaultSharedPreferences(APP.getInstance());
+        return PreferenceManager.getDefaultSharedPreferences(APP.get());
     }
 
     private static SharedPreferences getUserInfoSp() {
-        return APP.getInstance().getSharedPreferences(Constants.FILE_USER_INFO, Context.MODE_PRIVATE);
+        return APP.get().getSharedPreferences(Constants.FILE_USER_INFO, Context.MODE_PRIVATE);
     }
 
     public static void setInUserInfo(@NonNull String key, @NonNull Object value) {
@@ -58,7 +58,7 @@ public class PrefUtils {
     }
 
     public static void clearKey(@NonNull String fileName, @NonNull String key) {
-        SharedPreferences sp = APP.getInstance().getSharedPreferences(fileName, Context.MODE_PRIVATE);
+        SharedPreferences sp = APP.get().getSharedPreferences(fileName, Context.MODE_PRIVATE);
         sp.edit().remove(key).apply();
     }
 
