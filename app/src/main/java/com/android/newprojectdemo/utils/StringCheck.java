@@ -1,5 +1,7 @@
 package com.android.newprojectdemo.utils;
 
+import android.text.TextUtils;
+
 import java.io.UnsupportedEncodingException;
 
 /**
@@ -68,60 +70,43 @@ public class StringCheck {
 
     //判断密码复杂度
     public static int getPasswordLevel(String password) {
-        String regex1 = "[0-9]";
-        String regex2 = "[a-z]";
-        String regex3 = "[A-Z]";
-
         int pwdLen = password.length();
 
         int lenLevel = 0;
-
-        if (isEmpty(password)) {
-            return 0;
+        if (TextUtils.isEmpty(password)) {
+            return lenLevel;
         } else {
-            if (pwdLen <= 4) {
+            if (pwdLen <= 6) {
                 lenLevel = 1;
-            } else if (pwdLen > 4 && pwdLen <= 6) {
+            } else if (pwdLen > 6 && pwdLen <= 9) {
                 lenLevel = 2;
-            } else if (pwdLen > 6 && pwdLen <= 8) {
+            } else if (pwdLen > 9 && pwdLen <= 12) {
                 lenLevel = 3;
-            } else if (pwdLen > 8) {
+            } else if (pwdLen > 12) {
                 lenLevel = 4;
             }
         }
 
+        final String regex1 = ".*(?=[0-9]).*";
+        final String regex2 = ".*(?=[a-z]).*";
+        final String regex3 = ".*(?=[A-Z]).*";
+
         int formatLevel = 0;
-        boolean flag1 = false;
-        boolean flag2 = false;
-        boolean flag3 = false;
-        boolean flag4 = false;
+        if (password.matches(regex1)) {
+            formatLevel++;
+        }
+        if (password.matches(regex2)) {
+            formatLevel++;
+        }
+        if (password.matches(regex3)) {
+            formatLevel++;
+        }
 
         for (int i = 0; i < pwdLen; i++) {
             String str = String.valueOf(password.charAt(i));
-            if (str.matches(regex1)) {
-                if (flag1) {
-                    continue;
-                }
-                flag1 = true;
+            if (!str.matches(regex1) && !str.matches(regex2) && !str.matches(regex3)) {
                 formatLevel++;
-            } else if (str.matches(regex2)) {
-                if (flag2) {
-                    continue;
-                }
-                flag2 = true;
-                formatLevel++;
-            } else if (str.matches(regex3)) {
-                if (flag3) {
-                    continue;
-                }
-                flag3 = true;
-                formatLevel++;
-            } else {
-                if (flag4) {
-                    continue;
-                }
-                flag4 = true;
-                formatLevel++;
+                break;
             }
         }
 

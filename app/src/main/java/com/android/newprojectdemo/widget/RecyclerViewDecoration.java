@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.support.annotation.ColorRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -29,7 +30,7 @@ public class RecyclerViewDecoration extends RecyclerView.ItemDecoration {
         this(context, heightDP, 0);
     }
 
-    public RecyclerViewDecoration(Context context, int heightDP, int colorId) {
+    public RecyclerViewDecoration(Context context, int heightDP, @ColorRes int colorId) {
         mDividerHeight = DisplayUtils.dip2px(heightDP);
         if (colorId > 0) {
             mColor = ContextCompat.getColor(context, colorId);
