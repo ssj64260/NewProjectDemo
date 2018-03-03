@@ -121,6 +121,12 @@ dependencies {
     //数据库
     implementation files('libs/lite-orm-1.9.2.jar')
 
+    //中文转拼音
+    implementation 'com.github.promeg:tinypinyin:2.0.3'
+
+    //圆形ImageView
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+
     //导航栏按钮控件（通过library导入，可自定义）
     implementation project(':FlycoTabLayout_Lib')
 //    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'

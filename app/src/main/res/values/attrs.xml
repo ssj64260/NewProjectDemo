@@ -13,4 +13,9 @@
         <attr name="awv_scaleX" format="float" />
     </declare-styleable>
 
+    <declare-styleable name="IndexBar">
+        <attr name="indexBarTextSize" format="dimension" />
+        <attr name="indexBarPressBackground" format="color" />
+    </declare-styleable>
+
 </resources>
