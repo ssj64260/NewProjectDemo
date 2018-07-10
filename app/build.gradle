@@ -113,7 +113,7 @@ dependencies {
     implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.1.7'
 
     //二维码库
-    implementation 'com.google.zxing:core:3.3.0'
+    implementation 'com.google.zxing:core:3.3.2'
 
     //PDF预览控件
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
