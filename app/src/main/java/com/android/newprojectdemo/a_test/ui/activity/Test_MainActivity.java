@@ -1,5 +1,7 @@
 package com.android.newprojectdemo.a_test.ui.activity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -42,6 +44,12 @@ public class Test_MainActivity extends BaseActivity {
             "首页", "消息", "我的"
     };
     private ArrayList<CustomTabEntity> mTabEntities;
+
+    public static void show(Activity activity) {
+        Intent intent = new Intent();
+        intent.setClass(activity, Test_MainActivity.class);
+        activity.startActivity(intent);
+    }
 
     @Override
     protected int getContentView() {

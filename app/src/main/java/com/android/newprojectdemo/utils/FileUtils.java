@@ -17,6 +17,11 @@ import java.io.InputStream;
  */
 public class FileUtils {
 
+    public static boolean createdirectory(String path) {
+        final File file = new File(path);
+        return file.exists() || file.mkdirs();
+    }
+
     //获取文件大小
     public static long getFileSize(File f) throws Exception {
         long s = 0;
@@ -99,6 +104,31 @@ public class FileUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static boolean write(InputStream inputStream, String filePath) {
+        File file = new File(filePath);
+        if (file.exists()) {
+            file.delete();
+        }
+
+        FileOutputStream fos;
+        try {
+            fos = new FileOutputStream(file);
+
+            byte[] b = new byte[1024];
+
+            int len;
+            while ((len = inputStream.read(b)) != -1) {
+                fos.write(b, 0, len);
+            }
+            inputStream.close();
+            fos.close();
+        } catch (IOException e) {
+            return false;
+        }
+
+        return true;
     }
 
     //读取文本文件

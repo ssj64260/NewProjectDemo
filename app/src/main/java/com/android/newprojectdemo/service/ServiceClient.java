@@ -41,8 +41,23 @@ public class ServiceClient {
         return mService;
     }
 
-    private static void createService() {
-        mService = createRetrofit().create(ServiceApi.class);
+    public static ServiceApi getDownloadService(DownloadResponseBody.OnDownloadListener downloadListener) {
+        final OkHttpClient okHttpClient = new OkHttpClient.Builder()
+//                .addInterceptor(new LoggerInterceptor(true))
+                .addInterceptor(new DownloadInterceptor(downloadListener))
+                .connectTimeout(10000, TimeUnit.MILLISECONDS)
+                .readTimeout(10000, TimeUnit.MILLISECONDS)
+                .writeTimeout(10000, TimeUnit.MILLISECONDS)
+                .build();
+
+        final Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ServiceApi.BASE_HOST)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)
+                .build();
+
+        return retrofit.create(ServiceApi.class);
     }
 
     public static OkHttpClient getOkHttpClient() {
@@ -57,13 +72,15 @@ public class ServiceClient {
         return mClientBuilder.build();
     }
 
-    private static Retrofit createRetrofit() {
-        return new Retrofit.Builder()
+    private static void createService() {
+        final Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ServiceApi.BASE_HOST)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(getOkHttpClient())
                 .build();
+
+        mService = retrofit.create(ServiceApi.class);
     }
 
     //忽略验证的初始化

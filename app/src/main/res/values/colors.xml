@@ -27,7 +27,7 @@
     <!--0%  	00-->
 
     <color name="transparent">#00FFFFFF</color>
-    <color name="white">#FFFFFF</color>
+    <color name="white">#ffffff</color>
 
     <color name="black_overlay">#66000000</color>
     <color name="black_light">#212121</color>

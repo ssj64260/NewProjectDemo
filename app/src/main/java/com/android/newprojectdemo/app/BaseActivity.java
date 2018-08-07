@@ -15,7 +15,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import com.android.newprojectdemo.R;
-import com.android.newprojectdemo.ui.dialog.DefaultProgressDialog;
+import com.android.newprojectdemo.ui.dialog.ProgressDialog;
 import com.orhanobut.logger.Logger;
 
 /**
@@ -25,7 +25,7 @@ import com.orhanobut.logger.Logger;
 public abstract class BaseActivity extends AppCompatActivity {
 
     private InputMethodManager manager;
-    private DefaultProgressDialog mProgress;
+    private ProgressDialog mProgress;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -87,15 +87,15 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void showProgress(String message) {
         if (mProgress == null) {
-            mProgress = new DefaultProgressDialog(this);
+            mProgress = new ProgressDialog(this);
         }
         mProgress.setMessage(message);
-        mProgress.showDialog();
+        mProgress.show();
     }
 
     protected void hideProgress() {
         if (mProgress != null) {
-            mProgress.dismissDialog();
+            mProgress.dismiss();
         }
     }
 

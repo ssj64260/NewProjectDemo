@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
-import com.android.newprojectdemo.ui.dialog.DefaultProgressDialog;
+import com.android.newprojectdemo.ui.dialog.ProgressDialog;
 
 
 /**
@@ -25,7 +25,7 @@ public abstract class BaseFragment extends Fragment {
 
     protected View mFragmentView;
 
-    private DefaultProgressDialog mProgress;
+    private ProgressDialog mProgress;
     private InputMethodManager manager;
 
     protected Activity mActivity;
@@ -74,15 +74,15 @@ public abstract class BaseFragment extends Fragment {
 
     protected void showProgress(@StringRes int stringId) {
         if (mProgress == null) {
-            mProgress = new DefaultProgressDialog(getActivity());
+            mProgress = new ProgressDialog(mActivity);
         }
         mProgress.setMessage(getString(stringId));
-        mProgress.showDialog();
+        mProgress.show();
     }
 
     protected void hideProgress() {
         if (mProgress != null) {
-            mProgress.dismissDialog();
+            mProgress.dismiss();
         }
     }
 

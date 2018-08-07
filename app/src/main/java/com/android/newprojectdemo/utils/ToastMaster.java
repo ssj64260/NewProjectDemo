@@ -19,11 +19,11 @@ public class ToastMaster {
     }
 
     public static void toast(String content) {
-        showToast(Toast.makeText(APP.get(), content, Toast.LENGTH_SHORT));
+        showToast(Toast.makeText(APP.get(), content, Toast.LENGTH_LONG));
     }
 
     public static void toast(Context context, String content) {
-        showToast(Toast.makeText(context, content, Toast.LENGTH_SHORT));
+        showToast(Toast.makeText(context, content, Toast.LENGTH_LONG));
     }
 
     public static void toast(Context context, String content, int duration) {

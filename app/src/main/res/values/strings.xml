@@ -12,7 +12,7 @@
     <string name="text_sms_permission_message">在设置-应用-%1$s-权限中开启短信权限，以正常使用该功能</string>
     <string name="text_sensors_permission_message">在设置-应用-%1$s-权限中开启身体传感器权限，以正常使用该功能</string>
 
-    <!--DefaultProgressDialog-->
+    <!--ProgressDialog-->
     <string name="text_progress_logining">登录中&#8230;</string>
     <string name="text_progress_loading">加载中&#8230;</string>
     <string name="text_progress_committing">提交中&#8230;</string>

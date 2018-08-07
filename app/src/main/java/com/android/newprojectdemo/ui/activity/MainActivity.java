@@ -1,5 +1,6 @@
 package com.android.newprojectdemo.ui.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,12 @@ import com.android.newprojectdemo.a_test.ui.activity.Test_LoginActivity;
 import com.android.newprojectdemo.app.BaseActivity;
 
 public class MainActivity extends BaseActivity {
+
+    public static void show(Activity activity) {
+        Intent intent = new Intent();
+        intent.setClass(activity, MainActivity.class);
+        activity.startActivity(intent);
+    }
 
     @Override
     protected int getContentView() {
@@ -24,7 +31,7 @@ public class MainActivity extends BaseActivity {
     protected void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
 
-        startActivity(new Intent(this, Test_LoginActivity.class));
+        Test_LoginActivity.show(this);
         finish();
     }
 

@@ -1,5 +1,6 @@
 package com.android.newprojectdemo.a_test.ui.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,11 +13,11 @@ import android.widget.TextView;
 
 import com.android.newprojectdemo.R;
 import com.android.newprojectdemo.a_test.model.Test_UserInfoDetailBean;
-import com.android.newprojectdemo.a_test.service.Test_ServiceClient;
 import com.android.newprojectdemo.app.BaseActivity;
 import com.android.newprojectdemo.db.LiteOrmHelper;
 import com.android.newprojectdemo.model.ServiceResult;
 import com.android.newprojectdemo.service.MyObserver;
+import com.android.newprojectdemo.service.ServiceClient;
 import com.android.newprojectdemo.utils.ToastMaster;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -36,6 +37,12 @@ public class Test_LoginActivity extends BaseActivity {
     private TextView tvDoLogin;
 
     private Test_UserInfoDetailBean mUserInfo;
+
+    public static void show(Activity activity) {
+        Intent intent = new Intent();
+        intent.setClass(activity, Test_LoginActivity.class);
+        activity.startActivity(intent);
+    }
 
     @Override
     protected int getContentView() {
@@ -107,7 +114,7 @@ public class Test_LoginActivity extends BaseActivity {
         final String password = etPassword.getText().toString();
 
         showProgress(getString(R.string.text_progress_logining));
-        Test_ServiceClient.getService().doLogin(phoneNumber, password)
+        ServiceClient.getService().doLogin(phoneNumber, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new MyObserver<ServiceResult<Test_UserInfoDetailBean>>() {
@@ -122,7 +129,7 @@ public class Test_LoginActivity extends BaseActivity {
                         ToastMaster.toast("登录成功");
                         hideProgress();
 
-                        startActivity(new Intent(Test_LoginActivity.this, Test_MainActivity.class));
+                        Test_MainActivity.show(Test_LoginActivity.this);
                         finish();
                     }
 
