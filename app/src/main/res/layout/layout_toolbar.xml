@@ -27,7 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/tv_toolbar_title">
+        android:layout_toEndOf="@+id/tv_toolbar_title"
+        android:gravity="end">
 
         <TextView
             android:id="@+id/tv_toolbar_action"
@@ -42,19 +43,19 @@
 
         <ImageView
             android:id="@+id/iv_toolbar_action1"
-            android:layout_width="50dp"
+            android:layout_width="34dp"
             android:layout_height="match_parent"
-            android:padding="15dp"
+            android:padding="2dp"
             android:scaleType="fitCenter"
-            android:visibility="gone" />
+            android:src="@drawable/ic_arrow_back" />
 
         <ImageView
             android:id="@+id/iv_toolbar_action2"
-            android:layout_width="50dp"
+            android:layout_width="34dp"
             android:layout_height="match_parent"
-            android:padding="15dp"
+            android:padding="2dp"
             android:scaleType="fitCenter"
-            android:visibility="gone" />
+            android:src="@drawable/ic_arrow_back" />
 
     </LinearLayout>
 

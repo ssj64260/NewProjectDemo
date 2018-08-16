@@ -57,7 +57,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     }
 
-    private void setStatusBar() {
+    protected void initStatusBar(boolean isBlack) {
         Window window = getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
                 | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
@@ -70,7 +70,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            final int statusBarColor = isBlack ?
+                    View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : View.SYSTEM_UI_FLAG_VISIBLE;
+
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | statusBarColor);
             window.setStatusBarColor(Color.TRANSPARENT);
         }
     }
