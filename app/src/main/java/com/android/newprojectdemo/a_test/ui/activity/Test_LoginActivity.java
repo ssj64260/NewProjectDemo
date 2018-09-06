@@ -126,7 +126,7 @@ public class Test_LoginActivity extends BaseActivity {
                         dbHelper.save(mUserInfo);
                         dbHelper.closeDB();
 
-                        ToastMaster.toast("登录成功");
+                        ToastMaster.show("登录成功");
                         hideProgress();
 
                         Test_MainActivity.show(Test_LoginActivity.this);
@@ -137,7 +137,7 @@ public class Test_LoginActivity extends BaseActivity {
                     public void onError(String errorMsg) {
                         super.onError(errorMsg);
                         hideProgress();
-                        ToastMaster.toast(errorMsg);
+                        ToastMaster.show(errorMsg);
                     }
                 });
     }

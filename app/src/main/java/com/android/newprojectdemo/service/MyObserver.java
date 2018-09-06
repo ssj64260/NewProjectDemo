@@ -30,7 +30,7 @@ public abstract class MyObserver<T> implements Observer<T> {
             if (RESULT_CODE_SUCCESS.equals(serviceResult.getResultCode())) {
                 onSuccess(result);
             } else if (RESULT_CODE_TOKEN_INCORRECT.equals(serviceResult.getResultCode())) {
-                ToastMaster.toast(serviceResult.getResultMsg());
+                ToastMaster.show(serviceResult.getResultMsg());
                 onTokenIncorrect();
             } else {
                 onError(serviceResult.getResultMsg());

@@ -158,7 +158,7 @@ public class UpdateAppUtils {
                     @Override
                     public void run() {
                         if (!call.isCanceled()) {
-                            ToastMaster.toast("下载失败，请重试");
+                            ToastMaster.show("下载失败，请重试");
                             setDialogStyle(false);
                         }
                     }
@@ -205,7 +205,7 @@ public class UpdateAppUtils {
                     mHandler.post(new Runnable() {
                         @Override
                         public void run() {
-                            ToastMaster.toast("下载已取消");
+                            ToastMaster.show("下载已取消");
                             setDialogStyle(false);
                         }
                     });
@@ -228,7 +228,7 @@ public class UpdateAppUtils {
     private void installApk() {
         if (!apkFile.exists()) {
             setDialogStyle(false);
-            ToastMaster.toast("安装文件不存在，请重新下载");
+            ToastMaster.show("安装文件不存在，请重新下载");
         } else {
             final Intent intent = new Intent(Intent.ACTION_VIEW);
 

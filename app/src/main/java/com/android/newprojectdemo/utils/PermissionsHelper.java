@@ -28,6 +28,7 @@ public class PermissionsHelper {
     private static final String RECORD_AUDIO_TIPS = "在设置-应用-%1$s-权限中开启麦克风权限，以便正常使用该功能";
     private static final String READ_SMS_TIPS = "在设置-应用-%1$s-权限中开启短信权限，以便正常使用该功能";
     private static final String BODY_SENSORS_TIPS = "在设置-应用-%1$s-权限中开启身体传感器权限，以便正常使用该功能";
+    private static final String DEFAULT_TIPS = "在设置-应用-%1$s-权限中开启相应的权限，以便正常使用该功能";
 
     private final List<String> permissionList;
     private final List<String> errorTipsList;
@@ -211,6 +212,14 @@ public class PermissionsHelper {
                     && !permissionList.contains(Manifest.permission.BODY_SENSORS)) {
                 permissionList.add(Manifest.permission.BODY_SENSORS);
                 errorTipsList.add(String.format(BODY_SENSORS_TIPS, APP_NAME));
+            }
+            return this;
+        }
+
+        public Builder add(String permissions){
+            if (!permissionList.contains(permissions)) {
+                permissionList.add(permissions);
+                errorTipsList.add(String.format(DEFAULT_TIPS, APP_NAME));
             }
             return this;
         }

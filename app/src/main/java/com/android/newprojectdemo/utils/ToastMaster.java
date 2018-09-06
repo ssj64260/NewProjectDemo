@@ -18,15 +18,15 @@ public class ToastMaster {
 
     }
 
-    public static void toast(String content) {
+    public static void show(String content) {
         showToast(Toast.makeText(APP.get(), content, Toast.LENGTH_LONG));
     }
 
-    public static void toast(Context context, String content) {
+    public static void show(Context context, String content) {
         showToast(Toast.makeText(context, content, Toast.LENGTH_LONG));
     }
 
-    public static void toast(Context context, String content, int duration) {
+    public static void show(Context context, String content, int duration) {
         showToast(Toast.makeText(context, content, duration));
     }
 
