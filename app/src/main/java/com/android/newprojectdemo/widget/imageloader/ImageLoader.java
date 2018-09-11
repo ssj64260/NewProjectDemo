@@ -4,7 +4,6 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.android.newprojectdemo.R;
-import com.android.newprojectdemo.utils.GlideApp;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 
 /**
