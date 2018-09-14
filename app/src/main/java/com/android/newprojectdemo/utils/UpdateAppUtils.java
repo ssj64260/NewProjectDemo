@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.android.newprojectdemo.R;
 import com.android.newprojectdemo.model.FirImBean;
 import com.android.newprojectdemo.service.ServiceClient;
-import com.android.newprojectdemo.ui.dialog.TipsAlertDialog;
+import com.android.newprojectdemo.widget.dialog.TipsAlertDialog;
 
 import java.io.File;
 import java.io.FileOutputStream;

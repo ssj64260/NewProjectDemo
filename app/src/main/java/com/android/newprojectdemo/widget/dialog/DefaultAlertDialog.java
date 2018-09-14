@@ -1,4 +1,4 @@
-package com.android.newprojectdemo.ui.dialog;
+package com.android.newprojectdemo.widget.dialog;
 
 import android.content.Context;
 import android.content.DialogInterface;

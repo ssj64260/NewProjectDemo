@@ -15,7 +15,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import com.android.newprojectdemo.R;
-import com.android.newprojectdemo.ui.dialog.ProgressDialog;
+import com.android.newprojectdemo.widget.dialog.ProgressDialog;
 import com.orhanobut.logger.Logger;
 
 /**

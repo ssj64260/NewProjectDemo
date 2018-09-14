@@ -10,7 +10,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
 import com.android.newprojectdemo.app.APP;
-import com.android.newprojectdemo.ui.dialog.DefaultAlertDialog;
+import com.android.newprojectdemo.widget.dialog.DefaultAlertDialog;
 
 import java.util.ArrayList;
 import java.util.List;

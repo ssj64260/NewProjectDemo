@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
-import com.android.newprojectdemo.ui.dialog.ProgressDialog;
+import com.android.newprojectdemo.widget.dialog.ProgressDialog;
 
 
 /**
