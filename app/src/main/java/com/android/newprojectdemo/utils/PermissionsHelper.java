@@ -2,16 +2,20 @@ package com.android.newprojectdemo.utils;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 
 import com.android.newprojectdemo.app.APP;
 import com.android.newprojectdemo.widget.dialog.DefaultAlertDialog;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -234,4 +238,12 @@ public class PermissionsHelper {
 
         void cancelToSettings();
     }
+
+    public static Uri getFileUri(Context context, File file) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return FileProvider.getUriForFile(context, context.getPackageName() + ".file.path.share", file);
+        }
+        return Uri.fromFile(file);
+    }
+
 }
