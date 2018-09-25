@@ -33,17 +33,32 @@ public class LaunchActivity extends BaseActivity {
         super.initData();
 
         mPermissionsHelper = new PermissionsHelper.Builder()
-                .readContacts()
-                .callPhone()
                 .readCalendar()
+                .writeCalendar()
                 .camera()
+                .readContacts()
+                .writeContacts()
+                .getAccounts()
                 .accessFineLocation()
-                .writeExternalStorage()
+                .accessCoarseLocation()
                 .recordAudio()
+                .readPhoneState()
+                .callPhone()
+                .readCallLog()
+                .writeCallLog()
+                .addVoicemail()
+                .useSip()
+                .processOutgoingCalls()
+                .sendSms()
+                .receiveSms()
                 .readSms()
+                .receiveWapPush()
+                .receiveMms()
+                .readExternalStorage()
+                .writeExternalStorage()
                 .bodySensors()
+                .setPermissionsResult(mPermissionsResult)
                 .bulid();
-        mPermissionsHelper.setPermissionsResult(mPermissionsResult);
     }
 
     @Override
