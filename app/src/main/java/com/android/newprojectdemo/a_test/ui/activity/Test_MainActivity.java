@@ -3,8 +3,8 @@ package com.android.newprojectdemo.a_test.ui.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.android.newprojectdemo.R;
 import com.android.newprojectdemo.a_test.ui.fragment.Test_HomeFragment;

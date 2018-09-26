@@ -2,7 +2,7 @@ package com.android.newprojectdemo.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.android.newprojectdemo.a_test.ui.activity.Test_RetrofitAndRxjavaActivity;
 import com.android.newprojectdemo.app.BaseActivity;

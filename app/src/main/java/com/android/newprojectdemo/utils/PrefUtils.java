@@ -3,7 +3,7 @@ package com.android.newprojectdemo.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.android.newprojectdemo.app.APP;
 import com.android.newprojectdemo.config.Constants;

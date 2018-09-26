@@ -3,7 +3,7 @@ package com.android.newprojectdemo.utils;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.android.newprojectdemo.service.ServiceClient;
