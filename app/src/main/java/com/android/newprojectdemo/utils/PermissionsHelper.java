@@ -246,14 +246,6 @@ public class PermissionsHelper {
             return this;
         }
 
-        public Builder addVoicemail() {
-            if (!permissionList.contains(Manifest.permission.ADD_VOICEMAIL)) {
-                permissionList.add(Manifest.permission.ADD_VOICEMAIL);
-                errorTipsList.add(String.format(PHONE_TIPS, APP_NAME));
-            }
-            return this;
-        }
-
         public Builder useSip() {
             if (!permissionList.contains(Manifest.permission.USE_SIP)) {
                 permissionList.add(Manifest.permission.USE_SIP);

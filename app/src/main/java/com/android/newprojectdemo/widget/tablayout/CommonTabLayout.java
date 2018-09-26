@@ -1,4 +1,4 @@
-package com.flyco.tablayout;
+package com.android.newprojectdemo.widget.tablayout;
 
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
@@ -25,10 +25,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.flyco.tablayout.listener.CustomTabEntity;
-import com.flyco.tablayout.listener.OnTabSelectListener;
-import com.flyco.tablayout.utils.FragmentChangeManager;
-import com.flyco.tablayout.utils.UnreadMsgUtils;
+import com.android.newprojectdemo.R;
+import com.android.newprojectdemo.widget.tablayout.listener.CustomTabEntity;
+import com.android.newprojectdemo.widget.tablayout.listener.OnTabSelectListener;
+import com.android.newprojectdemo.widget.tablayout.utils.FragmentChangeManager;
+import com.android.newprojectdemo.widget.tablayout.utils.UnreadMsgUtils;
 
 import java.util.ArrayList;
 

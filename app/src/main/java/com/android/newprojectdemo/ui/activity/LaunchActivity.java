@@ -46,7 +46,6 @@ public class LaunchActivity extends BaseActivity {
                 .callPhone()
                 .readCallLog()
                 .writeCallLog()
-                .addVoicemail()
                 .useSip()
                 .processOutgoingCalls()
                 .sendSms()

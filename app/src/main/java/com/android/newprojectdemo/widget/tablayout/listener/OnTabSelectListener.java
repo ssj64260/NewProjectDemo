@@ -1,4 +1,4 @@
-package com.flyco.tablayout.listener;
+package com.android.newprojectdemo.widget.tablayout.listener;
 
 public interface OnTabSelectListener {
     void onTabSelect(int position);

@@ -12,9 +12,9 @@ import com.android.newprojectdemo.a_test.ui.fragment.Test_MessageFragment;
 import com.android.newprojectdemo.a_test.ui.fragment.Test_MineFragment;
 import com.android.newprojectdemo.app.BaseActivity;
 import com.android.newprojectdemo.model.TabEntity;
-import com.flyco.tablayout.CommonTabLayout;
-import com.flyco.tablayout.listener.CustomTabEntity;
-import com.flyco.tablayout.listener.OnTabSelectListener;
+import com.android.newprojectdemo.widget.tablayout.CommonTabLayout;
+import com.android.newprojectdemo.widget.tablayout.listener.CustomTabEntity;
+import com.android.newprojectdemo.widget.tablayout.listener.OnTabSelectListener;
 
 import java.util.ArrayList;
 import java.util.List;

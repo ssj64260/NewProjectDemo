@@ -1,6 +1,6 @@
 package com.android.newprojectdemo.model;
 
-import com.flyco.tablayout.listener.CustomTabEntity;
+import com.android.newprojectdemo.widget.tablayout.listener.CustomTabEntity;
 
 public class TabEntity implements CustomTabEntity {
     public String title;

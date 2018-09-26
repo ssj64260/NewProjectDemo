@@ -17,7 +17,7 @@
         android:layout_height="1dp"
         android:background="@color/material_grey_350" />
 
-    <com.flyco.tablayout.CommonTabLayout
+    <com.android.newprojectdemo.widget.tablayout.CommonTabLayout
         android:id="@+id/tablayout"
         android:layout_width="match_parent"
         android:layout_height="56dp"
