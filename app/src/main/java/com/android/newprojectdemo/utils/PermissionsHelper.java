@@ -71,7 +71,7 @@ public class PermissionsHelper {
     }
 
     private boolean hasBeenGranted(String permission) {
-        return ContextCompat.checkSelfPermission(APP.get(), permission) == PackageManager.PERMISSION_GRANTED;
+        return ContextCompat.checkSelfPermission(APP.getInstance(), permission) == PackageManager.PERMISSION_GRANTED;
     }
 
     private void requestNextPermissions(Activity activity) {

@@ -27,7 +27,7 @@ public class APP extends Application {
         Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy));
     }
 
-    public static APP get(){
+    public static APP getInstance(){
         return mApp;
     }
 
