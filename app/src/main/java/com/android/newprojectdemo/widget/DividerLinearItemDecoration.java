@@ -14,6 +14,7 @@ import android.view.View;
 
 import com.android.newprojectdemo.utils.DisplayUtils;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,49 +25,62 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class DividerLinearItemDecoration extends RecyclerView.ItemDecoration {
 
+    public static final int HORIZONTAL = 0x00;
+    public static final int VERTICAL = 0x01;
+
     private Drawable mDivider;
     private int mDividerSize;
-
     private int mPaddingLeft;
     private int mPaddingRight;
-
     private int mOrientation;
 
-    public DividerLinearItemDecoration(Context context, @ColorRes int colorId) {
-        mDivider = new ColorDrawable(ContextCompat.getColor(context, colorId));
-        this.setDividerSize(1)
-                .setOrientation(RecyclerView.VERTICAL)
-                .setPaddingLeft(0)
-                .setPaddingRight(0);
+    public DividerLinearItemDecoration() {
+        this.size(1)
+                .orientation(RecyclerView.VERTICAL)
+                .paddingLeft(0)
+                .paddingRight(0);
     }
 
-    public DividerLinearItemDecoration setDividerSize(int sizeDp) {
-        mDividerSize = DisplayUtils.dip2px(sizeDp);
+    public DividerLinearItemDecoration color(Context context, @ColorRes int colorId) {
+        mDivider = new ColorDrawable(ContextCompat.getColor(context, colorId));
         return this;
     }
 
-    public DividerLinearItemDecoration setOrientation(@RecyclerView.Orientation int orientation) {
-        if (orientation != RecyclerView.HORIZONTAL
-                && orientation != RecyclerView.VERTICAL) {
+    public DividerLinearItemDecoration color(@ColorInt int color) {
+        mDivider = new ColorDrawable(color);
+        return this;
+    }
+
+    public DividerLinearItemDecoration size(int dividerSizeDp) {
+        mDividerSize = DisplayUtils.dip2px(dividerSizeDp);
+        return this;
+    }
+
+    public DividerLinearItemDecoration orientation(int orientation) {
+        if (orientation != HORIZONTAL && orientation != VERTICAL) {
             throw new IllegalArgumentException("invalid orientation");
         }
         mOrientation = orientation;
         return this;
     }
 
-    public DividerLinearItemDecoration setPaddingLeft(int paddingLeftDP) {
-        this.mPaddingLeft = DisplayUtils.dip2px(paddingLeftDP);
+    public DividerLinearItemDecoration paddingLeft(int paddingLeftDp) {
+        this.mPaddingLeft = DisplayUtils.dip2px(paddingLeftDp);
         return this;
     }
 
-    public DividerLinearItemDecoration setPaddingRight(int paddingRightDP) {
-        this.mPaddingRight = DisplayUtils.dip2px(paddingRightDP);
+    public DividerLinearItemDecoration paddingRight(int paddingRightDp) {
+        this.mPaddingRight = DisplayUtils.dip2px(paddingRightDp);
         return this;
     }
 
     @Override
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
-        if (RecyclerView.VERTICAL == mOrientation) {
+        if (mDivider == null) {
+            return;
+        }
+
+        if (mOrientation == VERTICAL) {
             drawVertical(c, parent);
         } else {
             drawHorizontal(c, parent);
@@ -109,7 +123,7 @@ public class DividerLinearItemDecoration extends RecyclerView.ItemDecoration {
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-        if (RecyclerView.VERTICAL == mOrientation) {
+        if (mOrientation == VERTICAL) {
             outRect.set(0, 0, 0, mDividerSize);
         } else {
             outRect.set(0, 0, mDividerSize, 0);
