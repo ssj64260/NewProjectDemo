@@ -14,8 +14,12 @@ import android.view.View;
 
 import com.android.newprojectdemo.utils.DisplayUtils;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
+import androidx.annotation.IntDef;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,6 +31,11 @@ public class DividerLinearItemDecoration extends RecyclerView.ItemDecoration {
 
     public static final int HORIZONTAL = 0x00;
     public static final int VERTICAL = 0x01;
+
+    @IntDef({VERTICAL, HORIZONTAL})
+    @Retention(RetentionPolicy.SOURCE)
+    @interface Orientation {
+    }
 
     private Drawable mDivider;
     private int mDividerSize;
@@ -56,7 +65,7 @@ public class DividerLinearItemDecoration extends RecyclerView.ItemDecoration {
         return this;
     }
 
-    public DividerLinearItemDecoration orientation(int orientation) {
+    public DividerLinearItemDecoration orientation(@Orientation int orientation) {
         if (orientation != HORIZONTAL && orientation != VERTICAL) {
             throw new IllegalArgumentException("invalid orientation");
         }

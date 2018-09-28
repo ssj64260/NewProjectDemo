@@ -80,8 +80,7 @@ public class DividerGridItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     public DividerGridItemDecoration orientation(@Orientation int orientation) {
-        if (orientation != HORIZONTAL
-                && orientation != VERTICAL) {
+        if (orientation != HORIZONTAL && orientation != VERTICAL) {
             throw new IllegalArgumentException("invalid orientation");
         }
         mOrientation = orientation;
