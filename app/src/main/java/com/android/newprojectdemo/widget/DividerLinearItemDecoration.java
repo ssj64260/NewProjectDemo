@@ -45,7 +45,7 @@ public class DividerLinearItemDecoration extends RecyclerView.ItemDecoration {
 
     public DividerLinearItemDecoration() {
         this.size(1)
-                .orientation(RecyclerView.VERTICAL)
+                .orientation(VERTICAL)
                 .paddingLeft(0)
                 .paddingRight(0);
     }
