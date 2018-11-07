@@ -17,12 +17,13 @@ import retrofit2.http.Url;
 
 public interface ServiceApi {
 
-    String BASE_HOST = "http://test3.msqsoft.net/aboutapp/index.php/";//A+物流
+    String BASE_HOST = "http://test3.msqsoft.net/aboutapp/index.php/";//TODO 更改服务器地址
 
-    @POST("?g=WebApi&m=login&a=mobilesSignIn")//A+物流登录接口
+    @POST("?g=WebApi&m=login&a=mobilesSignIn")
     @FormUrlEncoded
-    Observable<ServiceResult<Test_UserInfoDetailBean>> doLogin(@Field("mobile") String mobile,
-                                                               @Field("password") String password);
+    Observable<ServiceResult<Test_UserInfoDetailBean>> doLogin(
+            @Field("mobile") String mobile,
+            @Field("password") String password);
 
     @GET()
     Observable<ResponseBody> download(@Url String url);
