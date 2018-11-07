@@ -3,8 +3,6 @@ package com.android.newprojectdemo.a_test.ui.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.android.newprojectdemo.R;
 import com.android.newprojectdemo.a_test.ui.fragment.Test_HomeFragment;
@@ -19,14 +17,17 @@ import com.android.newprojectdemo.widget.tablayout.listener.OnTabSelectListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 /**
  * 测试用：首页
  */
 
 public class Test_MainActivity extends BaseActivity {
 
-    private List<Fragment> mFragmentList;
     private Fragment mFragment;
+    private Fragment[] mFragments;
 
     private CommonTabLayout mTabLayout;
 
@@ -63,17 +64,12 @@ public class Test_MainActivity extends BaseActivity {
         for (int i = 0; i < mTabName.length; i++) {
             mTabEntities.add(new TabEntity(mTabName[i], mIconSelect[i], mIconUnselect[i]));
         }
-
-        mFragmentList = new ArrayList<>();
-        mFragmentList.add(Test_HomeFragment.newInstance());
-        mFragmentList.add(Test_MessageFragment.newInstance());
-        mFragmentList.add(Test_MineFragment.newInstance());
     }
 
     @Override
     protected void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
-        mTabLayout = (CommonTabLayout) findViewById(R.id.tablayout);
+        mTabLayout = findViewById(R.id.tablayout);
         mTabLayout.setTabData(mTabEntities);
         mTabLayout.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
@@ -87,6 +83,46 @@ public class Test_MainActivity extends BaseActivity {
             }
         });
 
+        initFragment(savedInstanceState);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("activity_will_destory", true);
+        super.onSaveInstanceState(outState);
+    }
+
+    private void initFragment(Bundle savedInstanceState) {
+        final int tabCount = mTabEntities.size();
+
+        mFragments = new Fragment[tabCount];
+        if (savedInstanceState != null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            List<Fragment> list = getSupportFragmentManager().getFragments();
+            if (list != null && list.size() >= tabCount) {
+                for (Fragment fragment : list) {
+                    if (fragment instanceof Test_HomeFragment) {
+                        mFragments[0] = fragment;
+                    } else if (fragment instanceof Test_MessageFragment) {
+                        mFragments[1] = fragment;
+                    } else if (fragment instanceof Test_MineFragment) {
+                        mFragments[2] = fragment;
+                    }
+                }
+            }
+            transaction.commit();
+        }
+
+        if (mFragments[0] == null) {
+            mFragments[0] = Test_HomeFragment.newInstance();
+        }
+        if (mFragments[1] == null) {
+            mFragments[1] = Test_MessageFragment.newInstance();
+        }
+        if (mFragments[2] == null) {
+            mFragments[2] = Test_MineFragment.newInstance();
+        }
+
         showFragment(0);
     }
 
@@ -97,8 +133,8 @@ public class Test_MainActivity extends BaseActivity {
             transaction.hide(mFragment);
         }
 
-        if (position < mFragmentList.size()) {
-            mFragment = mFragmentList.get(position);
+        if (position < mFragments.length) {
+            mFragment = mFragments[position];
 
             if (!mFragment.isAdded()) {
                 transaction.add(R.id.fl_fragment, mFragment);

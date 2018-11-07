@@ -1,5 +1,7 @@
 package com.android.newprojectdemo.service;
 
+import android.text.TextUtils;
+
 import com.android.newprojectdemo.model.ServiceResult;
 import com.android.newprojectdemo.utils.ToastMaster;
 import com.orhanobut.logger.Logger;
@@ -17,6 +19,7 @@ public abstract class MyObserver<T> implements Observer<T> {
 
     private static final String RESULT_CODE_SUCCESS = "100";//成功
     private static final String RESULT_CODE_TOKEN_INCORRECT = "206";//登录超时
+    private static final String MESSAGE_ERROR = "网络请求失败";
 
     @Override
     public void onSubscribe(@NonNull Disposable d) {
@@ -35,6 +38,8 @@ public abstract class MyObserver<T> implements Observer<T> {
             } else {
                 onError(serviceResult.getResultMsg());
             }
+        } else if (result == null) {
+            onError(MESSAGE_ERROR);
         } else {
             onSuccess(result);
         }
@@ -42,7 +47,9 @@ public abstract class MyObserver<T> implements Observer<T> {
 
     @Override
     public void onError(@NonNull Throwable e) {
-        onError(e.getMessage());
+        final String message = e.getMessage();
+
+        onError(TextUtils.isEmpty(message) ? MESSAGE_ERROR : message);
     }
 
     @Override
