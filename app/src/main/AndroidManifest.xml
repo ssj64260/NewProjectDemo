@@ -68,7 +68,7 @@
         </provider>
 
         <activity
-            android:name="com.android.newprojectdemo.ui.activity.LaunchActivity"
+            android:name="com.android.newprojectdemo.ui.activity.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/LaunchTheme">
             <intent-filter>
@@ -82,6 +82,14 @@
             android:name="com.android.newprojectdemo.ui.activity.MainActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:theme="@style/Transparent" />
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:theme="@style/Transparent" />
 
         <!-- ============= ↓测试用页面↓ ============= -->
         <activity

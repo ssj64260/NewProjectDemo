@@ -2,7 +2,6 @@ package com.android.newprojectdemo.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 
 import com.android.newprojectdemo.a_test.ui.activity.Test_RetrofitAndRxjavaActivity;
 import com.android.newprojectdemo.app.BaseActivity;
@@ -10,6 +9,7 @@ import com.android.newprojectdemo.utils.PermissionsHelper;
 
 import java.util.concurrent.TimeUnit;
 
+import androidx.annotation.NonNull;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Action;
@@ -19,7 +19,7 @@ import io.reactivex.functions.Action;
  * 启动页面
  */
 
-public class LaunchActivity extends BaseActivity {
+public class SplashActivity extends BaseActivity {
 
     private PermissionsHelper mPermissionsHelper;
 
@@ -74,7 +74,7 @@ public class LaunchActivity extends BaseActivity {
                 .doOnComplete(new Action() {
                     @Override
                     public void run() {
-                        Test_RetrofitAndRxjavaActivity.show(LaunchActivity.this);
+                        Test_RetrofitAndRxjavaActivity.show(SplashActivity.this);
                         finish();
                     }
                 })
