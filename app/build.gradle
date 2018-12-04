@@ -132,4 +132,10 @@ dependencies {
 
     //微信相关
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+
+    //支付宝相关
+    implementation (name: 'alipaySdk-15.5.7-20181023110930-noUtdid', ext: 'aar')
+
+    //高德地图定位相关
+    implementation 'com.amap.api:location:4.4.0'
 }

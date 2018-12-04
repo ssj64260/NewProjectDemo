@@ -2,6 +2,7 @@ package com.android.newprojectdemo.config;
 
 import com.android.newprojectdemo.a_test.model.Test_UserInfoDetailBean;
 import com.android.newprojectdemo.model.ServiceResult;
+import com.android.newprojectdemo.utils.alipay.UserInfo;
 
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
@@ -27,4 +28,14 @@ public interface ServiceApi {
 
     @GET()
     Observable<ResponseBody> download(@Url String url);
+
+    @POST("user/wechatLogin")//微信登录
+    @FormUrlEncoded
+    Observable<ServiceResult<UserInfo>> doWechatLogin(@Field("code") String code);
+
+    @POST("user/alipayLogin")//支付宝登录
+    @FormUrlEncoded
+    Observable<ServiceResult<UserInfo>> doAliLogin(
+            @Field("code") String code,
+            @Field("userId") String userId);
 }
